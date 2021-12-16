@@ -1,0 +1,5 @@
+<template>
+<GuestsList />
+</template>
+
+
