@@ -9,7 +9,7 @@
             Name
           </th>
           <th class="text-left">
-            Present
+            Gift
           </th>
           <th class="text-left">
             Confirmed
@@ -19,15 +19,28 @@
       <tbody>
         <tr
           v-for="guest in guests"
-          :key="guest.name"
+          :key="guest.id"
         >
           <td>{{ guest.name }}</td>
-          <td>{{ guest.present }}</td>
-           <td>{{ guest.confirmed }}</td>
+          <td>{{ guest.gift }}</td>
+          <td>{{ guest.confirmed }}</td>
         </tr>
-      </tbody>
+     </tbody>
+    
     </template>
-  </v-simple-table>
+  </v-simple-table>   
+    <v-btn
+      class="mx-2"
+      fab
+      dark
+      color="indigo"
+      @click="newGuest"
+    >
+      <v-icon dark>
+        mdi-plus
+      </v-icon>
+    </v-btn>
+
 </div>
 
 </template>
@@ -38,32 +51,41 @@
       return {
         guests: [
           {
+            id:1,
             name: 'Frank',
-            present: 'bottle of wine',
+            gift: 'bottle of wine',
             confirmed: 'No',
           },
           {
+            id:2,
             name: 'Adrian',
-            present: 'Dixit',
+            gift: 'Dixit',
             confirmed: 'Yes',
           },
           {
+            id:3,
             name: 'Paulette',
-            present: 'photo book',
+            gift: 'photo book',
             confirmed:'No',
           },
           {
+            id:4,
             name: 'Rafael',
-            present: 'Call of duty',
+            gift: 'Call of duty',
             confirmed: 'Yes',
           },
         ],
       }
     },
+    methods:{
+     newGuest(){
+        this.$emit('click-new-guest')
+     },
+    },
   }
 </script>
 
-<style>
+<style scoped>
 
 div{
       margin:15px;
@@ -76,4 +98,4 @@ h1{
 }
 
 
-</style>
+</style scoped>
