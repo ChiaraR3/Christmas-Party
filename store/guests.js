@@ -3,25 +3,25 @@ export const state = () => ({
         id:1,
         name: 'Frank',
         gift: 'bottle of wine',
-        confirmed: 'No',
+        confirmed: 'no',
       },
       {
         id:2,
         name: 'Adrian',
         gift: 'Dixit',
-        confirmed: 'Yes',
+        confirmed: 'yes',
       },
       {
         id:3,
         name: 'Paulette',
         gift: 'photo book',
-        confirmed:'No',
+        confirmed:'no',
       },
       {
         id:4,
         name: 'Rafael',
         gift: 'Call of duty',
-        confirmed: 'Yes',
+        confirmed: 'yes',
       },]
   })
   
@@ -35,7 +35,11 @@ export const state = () => ({
       state.list.splice(guestIndex, 1)
        }
     },
-    toggle(state, todo) {
-      todo.done = !todo.done
-    }
+    modified(state, guestToModify) {
+        const guestIndex = state.list.findIndex((guest)=>guest.id === guestToModify.id);
+        if(guestIndex>=0){
+       state.list.splice(guestIndex, 1, JSON.parse(JSON.stringify(guestToModify)));
+        }
+     },
+   
   }

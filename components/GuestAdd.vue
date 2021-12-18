@@ -1,7 +1,7 @@
 <template>
 <v-app class="adding">
 <h1> Do you really want to add a new guest? </h1>
-<p>Well, here you have...</p>
+<p>Well, if you insist...</p>
 
   <v-form
     ref="form"
@@ -92,7 +92,10 @@
            }
             this.$store.commit('guests/add', saveGuest)
             this.$router.push({path:'/guests'})
-       }
+       },
+       reset () {
+        this.$refs.form.reset()
+      },
        
    }
 
