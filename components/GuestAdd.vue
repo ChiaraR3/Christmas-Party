@@ -28,22 +28,11 @@
       label="Confirmed"
       required
     ></v-text-field>
-      <v-btn
-              icon
-              color="success"
-            >
-              <v-icon>mdi-thumb-up</v-icon>
-            </v-btn>
-              <v-btn
-              icon
-              color="error"
-            >
-              <v-icon>mdi-cached</v-icon>
-            </v-btn>
+     
     <v-btn
       color="success"
       class="mr-4"
-      @click="save"
+      @click="saveGuest"
     >
       Save
     </v-btn>
@@ -81,9 +70,29 @@
      ],
      
     }),
+  computed:{
+        guests(){
+             return this.$store.state.guests.list
+        }
+    
+    },
+   methods:{
+       saveGuest(){
+           const saveGuest = {
+               id: this.guests.length +1,
+               name:this.name,
+               gift: this.gift,
+               confirmed: this.confirmed,
+           }
+            this.$store.commit('guests/add', saveGuest)
+            this.$router.push({path:'/guests'})
+       }
+       
+   }
 
+   }
    
-  }
+  
 </script>
 
 <style scoped>
