@@ -14,17 +14,14 @@
           <th class="text-left">
             Confirmed
           </th>
+          <th class="text-left">
+            Think about it...
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="guest in guests"
-          :key="guest.id"
-        >
-          <td>{{ guest.name }}</td>
-          <td>{{ guest.gift }}</td>
-          <td>{{ guest.confirmed }}</td>
-        </tr>
+        <GuestTd v-for="guest in guests" :key="guest.id" :guest="guest"/>
+      
      </tbody>
     
     </template>
@@ -33,7 +30,7 @@
       class="mx-2"
       fab
       dark
-      color="indigo"
+     
       @click="newGuest"
     >
       <v-icon dark>
@@ -57,6 +54,7 @@
      newGuest(){
         this.$emit('click-new-guest')
      },
+     
     },
   }
 </script>

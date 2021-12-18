@@ -78,8 +78,14 @@
     },
    methods:{
        saveGuest(){
+           let lastId = -1;
+           this.guests.forEach(guest=>{
+               if(guest.id>lastId){
+                   lastId=guest.id;
+               }
+           })
            const saveGuest = {
-               id: this.guests.length +1,
+               id: lastId +1,
                name:this.name,
                gift: this.gift,
                confirmed: this.confirmed,

@@ -29,8 +29,11 @@ export const state = () => ({
     add(state, guest) {
       state.list.push(guest)
     },
-    remove(state, { todo }) {
-      state.list.splice(state.list.indexOf(todo), 1)
+    remove(state, guestToRemove) {
+       const guestIndex = state.list.findIndex((guest)=>guest.id === guestToRemove.id);
+       if(guestIndex>=0){
+      state.list.splice(guestIndex, 1)
+       }
     },
     toggle(state, todo) {
       todo.done = !todo.done
