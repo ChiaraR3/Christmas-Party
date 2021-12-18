@@ -1,18 +1,18 @@
 <template>
 <tr>
-    <td><input type="text" v-model="localGuest.name"/></td>
-    <td><input type="text" v-model="localGuest.gift"/></td>
-    <td><input type="text" v-model="localGuest.confirmed"/></td>
+    <td><v-text-field label="Name" v-model="localGuest.name"></v-text-field></td>
+    <td><v-text-field label="Gift" v-model="localGuest.gift"></v-text-field></td>
+    <td><v-text-field label="Confirmed" v-model="localGuest.confirmed"></v-text-field></td>
     <td> 
-        <v-btn icon v-show="ifModify" @click="saveModification">
+        <TheButton icon v-show="ifModify" @click="saveModification">
             <v-icon > mdi-checkbox-marked-circle </v-icon>
-            </v-btn>
-        <v-btn icon  v-show="ifModify" @click="resetMofication">
+            </TheButton>
+        <TheButton icon  v-show="ifModify" @click="resetMofication">
               <v-icon >mdi-cached</v-icon>
-        </v-btn>
-        <v-btn class="ma-2" text icon @click="remove(localGuest)">
+        </TheButton>
+        <TheButton text icon @click="remove(localGuest)">
              <v-icon>mdi-thumb-down</v-icon>
-        </v-btn>
+        </TheButton>
     </td>
 </tr>
 </template>

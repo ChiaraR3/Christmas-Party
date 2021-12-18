@@ -29,21 +29,21 @@
       required
     ></v-text-field>
      
-    <v-btn
+    <TheButton
       color="success"
       class="mr-4"
       @click="saveGuest"
     >
       Save
-    </v-btn>
+    </TheButton>
 
-    <v-btn
+    <TheButton
       color="error"
       class="mr-4"
       @click="reset"
     >
       Reset 
-    </v-btn>
+    </TheButton>
    
   </v-form>
    </v-app>
