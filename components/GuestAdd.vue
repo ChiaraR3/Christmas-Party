@@ -108,7 +108,10 @@
 <style scoped>
 .adding{
     margin:5px;
+    margin-left:50px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width:80%;
+    display: center;
 }
 h1{
     color:red;;

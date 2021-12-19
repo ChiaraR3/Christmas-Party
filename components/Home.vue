@@ -12,7 +12,7 @@
     <p> Happy Holidays! </p>
    <TheButton @click="showGuests"><h3> Show me that list </h3></TheButton>
   </v-img>
-  
+ 
  
   </div>
   

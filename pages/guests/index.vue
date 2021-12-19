@@ -1,5 +1,7 @@
 <template>
 <GuestsList v-on:click-new-guest="addNewOne" />
+
+
 </template>
 
 <script>
@@ -10,6 +12,7 @@
               path:"/guests/add"
           })
       },
+      
   }
   }
   </script>
