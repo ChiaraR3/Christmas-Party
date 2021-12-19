@@ -46,8 +46,37 @@ export default {
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n'
   ],
+
+   i18n: {
+    locales: ['en', 'fr', 'es'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          welcome: "Welcome",
+          home1:"This year Christmas has also arrived and so have the gatherings among friends, family, co-workers... and with them, the gifts.",
+          home2:"We know that this time, no, you are not going to organize any party.",
+          home3:"But, as we know each other, here is a small list of your guests to keep under control the gift ideas and confirmations.",
+          home4:"You can also remove people from the list, don't worry.",
+          home5:"Happy Holidays"
+        },
+        
+        es: {
+          welcome: "Bienvenido",
+          home1: "Este año también ha llegado la Navidad y las reuniones entre amigos, familiares, compañeros de trabajo... y con ellas, los regalos.",
+          home2:"Sabemos que esta vez, no, no vas a organizar ninguna fiesta.",
+          home3:"Pero, como nos conocemos, aquí tienes una pequeña lista de tus invitados para tener controladas las ideas de regalos y las confirmaciones.",
+          home4:"También puedes eliminar gente de la lista, no te preocupes.",
+          home5:"¡Felices fiestas!"
+        }
+      }
+    }
+  },
+  
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
