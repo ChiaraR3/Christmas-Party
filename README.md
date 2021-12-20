@@ -1,4 +1,4 @@
-# Christmas-Party
+# Christmas-Party PUBLIC DEMO: https://festive-morse-4329c2.netlify.app/ 
 
 ## Build Setup
 
