@@ -3,6 +3,7 @@
     <h1>{{ jokes.value }}</h1>
 
     <TheButton> <NuxtLink to="/guests"> Back to work </NuxtLink></TheButton>
+      <TheButton @click="anotherOne"> Another one </TheButton>
   </div>
 </template>
 
@@ -22,6 +23,14 @@ export default {
       jokes: [],
     };
   },
+  mounted(){
+    this.$fetch();
+  },
+  methods:{
+    anotherOne (){
+      this.$fetch();
+    }
+  }
 };
 </script>
 

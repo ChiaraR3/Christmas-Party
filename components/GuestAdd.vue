@@ -3,7 +3,7 @@
     <h1>Do you really want to add a new guest?</h1>
     <p>Well, if you insist...</p>
 
-    <v-form ref="form">
+    <v-form ref="form" v-model="valid"  >
       <v-text-field
         v-model="name"
         :counter="10"
@@ -26,18 +26,25 @@
         required
       ></v-text-field>
 
-      <TheButton color="success" class="mr-4" @click="saveGuest">
+      <TheButton color="success" class="mr-4" :disabled="!valid"  @click="saveGuest">
         Save
       </TheButton>
 
       <TheButton color="error" class="mr-4" @click="reset"> Reset </TheButton>
     </v-form>
+
+   <div class="back">
+    <TheButton> <NuxtLink to="/guests"> Nope, just kidding</NuxtLink></TheButton>
+  </div>
+
   </v-app>
+ 
 </template>
 
 <script>
 export default {
   data: () => ({
+    valid: false,
     name: "",
     nameRules: [
       (v) => !!v || "Name is required",
@@ -52,6 +59,7 @@ export default {
     guests() {
       return this.$store.state.guests.list;
     },
+     
   },
   methods: {
     saveGuest() {
@@ -73,8 +81,10 @@ export default {
     reset() {
       this.$refs.form.reset();
     },
+    
   },
-};
+   
+}
 </script>
 
 <style scoped>
@@ -89,5 +99,8 @@ export default {
 h1 {
   color: red;
   text-align: center;
+}
+.back{
+  margin-top:50px;
 }
 </style>
