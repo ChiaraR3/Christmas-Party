@@ -1,5 +1,5 @@
 <template>
-  <v-row class="guests">
+  <div class="guests">
     <v-col cols="12">
       <h1>Your guests</h1>
       <div class="filter">
@@ -20,10 +20,10 @@
         <template v-slot:default>
           <thead>
             <tr>
-              <th class="text-left">Name</th>
-              <th class="text-left">Gift</th>
-              <th class="text-left">Confirmed</th>
-              <th class="text-left">Think about it...</th>
+              <th >Name</th>
+              <th >Gift</th>
+              <th >Confirmed</th>
+              <th >Think about it...</th>
             </tr>
           </thead>
           <tbody>
@@ -39,7 +39,7 @@
       <p>I can't go on, tell me a joke</p>
       <TheButton @click="jokes">Please</TheButton>
     </v-col>
-  </v-row>
+  </div>
 </template>
 
 <script>
@@ -54,12 +54,14 @@ export default {
       return this.$store.state.guests.list;
     },
     guestsFiltered() {
+     
       return this.guests.filter((guest) => {
+        const wordToFilter =this.filterBy.toLowerCase();
         if (
-          guest.id.toString() === this.filterBy ||
-          guest.name.includes(this.filterBy) ||
-          guest.gift.includes(this.filterBy) ||
-          guest.confirmed.includes(this.filterBy)
+          guest.id.toString() === wordToFilter ||
+          guest.name.toLowerCase().includes(wordToFilter) ||
+          guest.gift.toLowerCase().includes(wordToFilter) ||
+          guest.confirmed.toLowerCase().includes(wordToFilter)
         ) {
           return true;
         } else {
@@ -98,6 +100,7 @@ h1 {
   height: 12%;
 }
 .add {
+  margin-top:50px;
   margin-bottom: 5px;
   font-size: 5px;
 }
